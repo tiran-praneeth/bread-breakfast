@@ -71,8 +71,8 @@
               //fetch results set as object and output HTML
                 while ($obj = $results->fetch_object()) {
             ?>
-
           <li class="span4">
+          <form action="lodging_detail_view.php" method="post">
             <div class="thumbnail">
                 <img src="<?php echo $obj->image_url;?>" alt="product name" style="height: 200px">
               <div class="caption">
@@ -83,13 +83,15 @@
                     <?php echo $obj->description;?>
                 </p>
               </div>
+              <input type="hidden" name="P_ID" value="<?php echo $obj->id;?>">
               <div class="widget-footer">
                 <p>
-                  <a href="#" class="btn btn-primary">Book now</a>&nbsp;
-                  <a href="$" class="btn">Read more</a>
+                  <button class="btn btn-primary">Book now</button>&nbsp;
+                  <button class="btn">Read more</button>
                 </p>
               </div>
             </div>
+          </form>
           </li>
 
             <?php
