@@ -25,7 +25,9 @@
           if (isset($_GET['P_Search'])) {
 
             $search   = $_GET['P_Search'];
-            $P_Search = 'WHERE name LIKE "%'.$_GET['P_Search'].'%" OR price LIKE "%'.$_GET['P_Search'].'%" OR location LIKE "%'.$_GET['P_Search'].'%"';
+            $P_Search = 'WHERE availability = "1" AND name LIKE "%'.$_GET['P_Search'].'%" OR price LIKE "%'.$_GET['P_Search'].'%" OR location LIKE "%'.$_GET['P_Search'].'%"';
+          } else {
+            $P_Search = 'WHERE availability = "1"';
           }
 
           if (isset($_GET['pagination'])) {
@@ -80,7 +82,6 @@
                         <input type="hidden" name="P_ID" value="<?php echo $obj->id;?>">
                         <div class="widget-footer">
                           <p>
-                            <button class="btn btn-primary">Book now</button>&nbsp;
                             <button class="btn">Read more</button>
                           </p>
                         </div>

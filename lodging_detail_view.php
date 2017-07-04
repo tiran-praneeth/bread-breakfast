@@ -11,27 +11,47 @@
 
         <?php
 
+        if (isset($_POST['Book'])) {
+
+          $lodging_id = $_POST['P_ID'];
+          $user_id    = $_SESSION["user_id"];
+
+            $book_result = $connection->query("INSERT INTO booking values (NULL, '$lodging_id', '$user_id', NULL, 1)");
+            $book_results = $connection->query("UPDATE lodging SET availability = 0 WHERE id =".$lodging_id);
+        
+            if($book_result){
+
+              echo '<div class="alert alert-success alert-dismissible" role="alert" style="text-align: center;">
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                  You have Booked lodging successfully!.
+                            </div>';
+            }
+            else{
+
+              echo "Error - ".mysqli_error($connection);
+            }
+        }
+
         if (isset($_POST['review'])) {
 
         	$lodging_id = $_POST['P_ID'];
-        	$user_id = $_SESSION["user_id"];
-        	$review = $_POST['comment'];
+        	$user_id    = $_SESSION["user_id"];
+        	$review     = $_POST['comment'];
 
             $result = $connection->query("INSERT INTO review values (NULL, '$lodging_id', '$user_id', '$review', NULL, NULL, 1)" );
 				
-			if($result){
-				
-				echo '<div class="alert alert-success alert-dismissible" role="alert" style="text-align: center;">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            You have reviewed successfully!.
-                      </div>';
-			}
-		
-			else{
+      			if($result){
 
-				echo "Error - ".mysqli_error($connection);
-			}
-          }
+      				echo '<div class="alert alert-success alert-dismissible" role="alert" style="text-align: center;">
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                  You have reviewed successfully!.
+                            </div>';
+      			}
+      			else{
+
+      				echo "Error - ".mysqli_error($connection);
+      			}
+        }
 
 
         $results = $connection->query("SELECT * FROM lodging where id =".$_POST['P_ID']);
@@ -63,12 +83,23 @@
             </div>      
           </div>
           <div class="row">
-            <div class="span10 offset4">
+            <div class="span8 offset4">
               <hr>
               
-              <div class="span3">
-                <button class="btn btn-large btn-block" value="">Book Lodging</button>
-              </div>
+              <?php if (isset($_SESSION['user_email'])): ?>  
+
+                <div class="span3">
+                <form action="lodging_detail_view.php" method="post">
+                  <input type="hidden" name="P_ID" value="<?php echo $_POST['P_ID'];?>">
+                  <button class="btn btn-large btn-block btn-primary" value="Book" name="Book">Book Lodging</button>
+                </form>
+                </div>
+
+                <!-- <div class="span3">
+                  <div id="paypal-button-container"></div>
+                </div> -->
+
+              <?php endif ?>
 
             </div>
           </div>
@@ -99,17 +130,19 @@
                }
             ?>
 
-            <form action="lodging_detail_view.php" method="post">
+            <?php if (isset($_SESSION['user_email'])): ?>  
+
+              <form action="lodging_detail_view.php" method="post">
                 <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5" style="width: 70%;"></textarea>
 
                 <input type="hidden" name="P_ID" value="<?php echo $_POST['P_ID'];?>">
 
                 <div class="text-right">
-			    	<button class="btn btn-success" value="review" name="review">Leave a Review</button>
-				</div>
+                  <button class="btn btn-success" value="review" name="review">Leave a Review</button>
+              </div>
             </form>
 
-			
+            <?php endif ?>
 
         </div>
 
