@@ -1,3 +1,5 @@
 
 
 \.vscode/
+
+config/db_config\.php

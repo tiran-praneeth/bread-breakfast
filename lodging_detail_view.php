@@ -86,7 +86,7 @@
             <div class="span8 offset4">
               <hr>
               
-              <?php if (isset($_SESSION['user_email'])): ?>  
+              <?php if (isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'TOURIST'): ?>  
 
                 <div class="span3">
                 <form action="lodging_detail_view.php" method="post">

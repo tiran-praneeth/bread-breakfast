@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Colombo");
 
 	$server		= "localhost";
 	$user 		= "root";
-	$password 	= "";
+	$password 	= "Try0n!c$";
 	$db 		= "bnb_db";
 	
 	$con 		= mysqli_connect($server, $user, $password, $db);
