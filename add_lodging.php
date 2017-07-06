@@ -36,7 +36,7 @@
                 $image_url   = $fileInfo;
                 $user_id     = $_SESSION["user_id"];
 
-                $sql = "INSERT INTO lodging values(NULL, '$name', '$price', '$description', '$long_description', '$location', '$image_url', NULL, '$user_id', NULL, NULL)";
+                $sql = "INSERT INTO lodging values(NULL, '$name', '$price', '$description', '$long_description', '$location', '$image_url', '1', '$user_id', NULL, '1')";
 
                 $results = $connection->query($sql);
 
