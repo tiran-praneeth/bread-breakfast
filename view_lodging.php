@@ -25,7 +25,9 @@
           if (isset($_GET['P_Search'])) {
 
             $search   = $_GET['P_Search'];
-            $P_Search = 'WHERE name LIKE "%'.$_GET['P_Search'].'%" OR price LIKE "%'.$_GET['P_Search'].'%" OR location LIKE "%'.$_GET['P_Search'].'%"';
+            $P_Search = 'WHERE availability = "1" AND name LIKE "%'.$_GET['P_Search'].'%" OR price LIKE "%'.$_GET['P_Search'].'%" OR location LIKE "%'.$_GET['P_Search'].'%"';
+          } else {
+            $P_Search = 'WHERE availability = "1"';
           }
 
           if (isset($_GET['pagination'])) {
@@ -66,6 +68,7 @@
                     ?>
 
                     <li class="span3">
+                    <form action="lodging_detail_view.php" method="post">
                       <div class="thumbnail">
                         <img src="<?php echo $obj->image_url;?>" alt="product name" style="height: 150px">
                         <div class="caption">
@@ -76,13 +79,14 @@
                             <?php echo $obj->description;?>
                           </p>
                         </div>
+                        <input type="hidden" name="P_ID" value="<?php echo $obj->id;?>">
                         <div class="widget-footer">
                           <p>
-                            <a href="#" class="btn btn-primary">Book now</a>&nbsp;
-                            <a href="$" class="btn">Read more</a>
+                            <button class="btn">Read more</button>
                           </p>
                         </div>
                       </div>
+                    </form>
                     </li>
 
                   <?php

@@ -31,11 +31,13 @@
                 $name        = $_POST['name'];
                 $price       = $_POST['price'];
                 $description = $_POST['description'];
+                $long_description = $_POST['long_description'];
                 $location    = $_POST['location'];
                 $image_url   = $fileInfo;
                 $user_id     = $_SESSION["user_id"];
 
-                $sql = "INSERT INTO lodging values(NULL, '$name', '$price', '$description', '$location', '$image_url', '$user_id', NULL)";
+                $sql = "INSERT INTO lodging values(NULL, '$name', '$price', '$description', '$long_description', '$location', '$image_url', NULL, '$user_id', NULL, NULL)";
+
                 $results = $connection->query($sql);
 
                 if($results){
@@ -46,7 +48,7 @@
                 } else {
 
                     $error_msg = "<div class='form-group text-center alert alert-danger'>
-                                    <span>* '".mysqli_error($mysqli)."'</span>
+                                    <span>* ".mysqli_error($connection)."</span>
                                  </div>";
                 }
 
@@ -91,8 +93,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="name" class="label label-inverse">Lodging Description</label>
+                        <label for="name" class="label label-inverse">Lodging Short Description</label>
                         <textarea name="description" placeholder="Lodging Description" required="" style="width: 70%; margin-bottom: 15px; height: 100px;"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="label label-inverse">Lodging Long Description</label>
+                        <textarea name="long_description" placeholder="Lodging Description" required="" style="width: 70%; margin-bottom: 15px; height: 100px;"></textarea>
                     </div>
 
                     <div class="form-group">

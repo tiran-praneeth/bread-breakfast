@@ -48,7 +48,7 @@
             <h3>North America</h3>
             <div>
               <address class="pull-left">
-                <strong>Bootbusiness, Inc.</strong><br>
+                <strong>Bread & Breakfast, Inc.</strong><br>
                 123 Folsom Ave, Suite 600<br>
                 USA<br>
               </address>
@@ -58,14 +58,14 @@
                 </div>
                 <a href="mailto:contact@bootbusiness.com" class="contact-mail">
                   <i class="icon-envelope icon-large"></i>
-                </a> contact@bootbusiness.com
+                </a> contact@bread&breakfast.com
               </div>
               <div class="clearfix"></div>
             </div>
             <h3>Europe</h3>
             <div>
               <address class="pull-left">
-                <strong>Bootbusiness, Inc.</strong><br>
+                <strong>Bread & Breakfast, Inc.</strong><br>
                 123 Folsom Ave, Suite 600<br>
                 UK<br>
               </address>
@@ -75,14 +75,14 @@
                 </div>
                 <a href="mailto:contact@bootbusiness.com" class="contact-mail">
                   <i class="icon-envelope icon-large"></i>
-                </a> contact@bootbusiness.com
+                </a> contact@bread&breakfast.com
               </div>
               <div class="clearfix"></div>
             </div>
             <h3>Asia</h3>
             <div>
               <address class="pull-left">
-                <strong>Bootbusiness, Inc.</strong><br>
+                <strong>Bread & Breakfast, Inc.</strong><br>
                 123 Folsom Ave, Suite 600<br>
                 India<br>
               </address>
@@ -92,7 +92,7 @@
                 </div>
                 <a href="mailto:contact@bootbusiness.com" class="contact-mail">
                   <i class="icon-envelope icon-large"></i>
-                </a> contact@bootbusiness.com
+                </a> contact@bread&breakfast.com
               </div>
               <div class="clearfix"></div>
             </div>

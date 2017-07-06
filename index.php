@@ -15,7 +15,7 @@
               <div class="active item">
                 <div class="hero-unit">
                   <div class="row-fluid">
-                    <img src="assets/img/sample/placeholder-1280x550.png" class="thumbnail">
+                    <img src="assets/img/sliders/mountain_lodge_top_snow_92237_2560x1080.jpg" class="thumbnail" style="width: 1280px; height: 500px;">
                   </div>                  
                 </div>
               </div>
@@ -23,7 +23,7 @@
               <div class="item">
                 <div class="hero-unit">
                   <div class="row-fluid">
-                    <img src="assets/img/sample/placeholder-1280x550.png" class="thumbnail">
+                    <img src="assets/img/sliders/Lodge_Interior_3840x1600-1440x600.jpg" class="thumbnail" style="width: 1280px; height: 500px;">
                   </div>                  
                 </div>
               </div>
@@ -31,7 +31,7 @@
               <div class="item">
                 <div class="hero-unit">
                   <div class="row-fluid">
-                    <img src="assets/img/sample/placeholder-1280x550.png" class="thumbnail">
+                    <img src="assets/img/sliders/lodge-in-thail.jpg" class="thumbnail" style="width: 1280px; height: 500px;">
                   </div>                  
                 </div>
               </div>
@@ -39,7 +39,7 @@
               <div class="item">
                 <div class="hero-unit">
                   <div class="row-fluid">
-                    <img src="assets/img/sample/placeholder-1280x550.png" class="thumbnail">
+                    <img src="assets/img/sliders/4k-wallpapers-0.jpg" class="thumbnail" style="width: 1280px; height: 500px;">
                   </div>                  
                 </div>
               </div>
@@ -71,8 +71,8 @@
               //fetch results set as object and output HTML
                 while ($obj = $results->fetch_object()) {
             ?>
-
           <li class="span4">
+          <form action="lodging_detail_view.php" method="post">
             <div class="thumbnail">
                 <img src="<?php echo $obj->image_url;?>" alt="product name" style="height: 200px">
               <div class="caption">
@@ -83,13 +83,14 @@
                     <?php echo $obj->description;?>
                 </p>
               </div>
+              <input type="hidden" name="P_ID" value="<?php echo $obj->id;?>">
               <div class="widget-footer">
                 <p>
-                  <a href="#" class="btn btn-primary">Book now</a>&nbsp;
-                  <a href="$" class="btn">Read more</a>
+                  <button class="btn">Read more</button>
                 </p>
               </div>
             </div>
+          </form>
           </li>
 
             <?php
